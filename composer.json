@@ -1,0 +1,36 @@
+{
+  "name": "shef/admin",
+  "description": "Laravel Admin Panel",
+  "license": "MIT",
+  "version": "1.0.0",
+  "minimum-stability": "dev",
+  "keywords": [
+    "laravel",
+    "admin",
+    "laravel admin",
+    "laravel admin panel"
+  ],
+  "authors": [
+    {
+      "name": "Pento ",
+      "email": "pentowagner@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.9",
+    "illuminate/support": "^5.1",
+    "laravelcollective/html": "~5.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Shef29\\JustAdmin\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Shef29\\JustAdmin\\JustAdminServiceProvider"
+      ]
+    }
+  }
+}

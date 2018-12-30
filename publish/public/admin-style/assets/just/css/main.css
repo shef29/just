@@ -1,0 +1,8 @@
+.breadcrumb li {
+    margin-left : 10px;
+}
+.breadcrumb>li+li:before {
+    padding: 0 5px;
+    color: #ccc;
+    content: "/\00a0";
+}
