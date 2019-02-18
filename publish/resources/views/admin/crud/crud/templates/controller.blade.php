@@ -90,7 +90,13 @@ class {{$crud->createClassName($crud->controller)}} extends Controller
         return redirect('/{{$crud->url}}');
     }
 
-    protected function val($request)
+    /**
+    * Remove the specified resource from storage.
+    * @param    \Illuminate\Http\Request $request
+    * @param $id  - for update(if isset unique columns)
+    * @return mixed
+    */
+    protected function val($request, $id = null)
     {
         $this->validate(
             $request,

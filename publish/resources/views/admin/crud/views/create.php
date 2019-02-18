@@ -12,7 +12,7 @@
         @endforeach
     </ul>
     @endif
-    <form action="{{route('<?= $crud->route ?>.store')}}" method="post">
+    <form action="{{route('<?= $crud->route ?>.store')}}" enctype="multipart/form-data" method="post">
         @csrf
         <?php foreach ($fields as $field) : ?>
             <?= \Shef29\JustAdmin\GenerateField::getHtmlField($field); ?>

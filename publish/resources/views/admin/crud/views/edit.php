@@ -16,6 +16,7 @@
     {!! Form::model($model, [
         'method' => 'PATCH',  'class' => 'form-horizontal',
         'route' => ['<?= $crud->route ?>.update', $model->id],
+        'enctype' => 'multipart/form-data',
     ]) !!}
     <?php foreach ($fields as $field) : ?>
         <?= \Shef29\JustAdmin\GenerateField::getHtmlField($field); ?>

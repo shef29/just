@@ -18,12 +18,12 @@ class GenerateField
             return self::htmlInput($field->name, 'email', $required);
         }
 
-        if (preg_match('/^(keyword)|(descrip)|(keyword)/i', $field->name) == true) {
+        if (preg_match('/^(keyword)|(descrip)|(meta_)|(keyword)/i', $field->name) == true) {
             return self::htmlInput($field->name, 'textarea', $required);
         }
 
         if ($field->type == 'tinyint') {
-            return self::htmlInput($field->name, 'checkbox', $required);
+            return self::htmlCheckbox($field->name);
         }
 
         // todo  add date
@@ -34,7 +34,7 @@ class GenerateField
     private static function htmlInput($name, $type = 'text', $config)
     {
         return
-            '<div class="form-group bmd-form-group{{ $errors->has("' . $name . '") ? "has-error" : ""}}">
+            '<div class="form-group bmd-form-group {{ $errors->has("' . $name . '") ? "has-error" : ""}}">
           {!! Form::label("' . $name . '", "' . $name . ' : ", [\'class\' => \'bmd-label-floating\']) !!}
           {!! Form::' . $type . '("' . $name . '", null, [\'class\' => \'form-control\', \'required\' => \'required\']) !!}
           {!! $errors->first("' . $name . '", \'<p class="help-block">:message</p>\') !!}
@@ -57,4 +57,13 @@ class GenerateField
           </div>';
     }
 
+    private static function htmlCheckbox($name)
+    {
+        return
+            '<div class="form-group bmd-form-group {{ $errors->has("' . $name . '") ? "has-error" : ""}}">
+          {!! Form::label("' . $name . '", "' . $name . ' : ", [\'class\' => \'bmd-label-floating\']) !!}
+          {!! Form::checkbox("' . $name . '") !!}
+          {!! $errors->first("' . $name . '", \'<p class="help-block">:message</p>\') !!}
+          </div>';
+    }
 }

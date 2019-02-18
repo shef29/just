@@ -13,7 +13,7 @@
         </a>
     </p>
 
-    <a href="{{url('<?= $crud->url ?>/'.$model->id.'/edit')}}" class="btn btn-success">Edit</a>
+    <a href="{{url('<?= $crud->url ?>/'.$model->id.'/edit')}}" class="btn btn-success btn-sm">Edit</a>
     {!! Form::open(['method' => 'DELETE', 'url' => ['<?= $crud->url ?>', $model->id], 'style' => 'display:inline']) !!}
 
     {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Delete',[
@@ -23,7 +23,6 @@
     'onclick'=>'return confirm("Confirm Delete?")'])
     !!}
     {!! Form::close() !!}
-
 
     <div class="card">
         <div class="card-block">
