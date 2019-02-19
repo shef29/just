@@ -11,8 +11,8 @@
         </a>
     </p>
 
-    <div class="table-responsive">
-        <table class="table">
+    <div class="main-table">
+        <table class="table-bordered">
             <thead>
                 <tr>
     <?php foreach ($fields as $field) : ?>
