@@ -75,7 +75,7 @@ class {{$crud->createClassName($crud->controller)}} extends Controller
         $model = $this->findModel($id);
         $model->update($request->all());
 
-        return redirect('/{{$crud->url}}');
+        return redirect('/{{$crud->url}}/'.$id);
     }
 
     /**
@@ -87,7 +87,8 @@ class {{$crud->createClassName($crud->controller)}} extends Controller
     {
         $this->findModel($id)->delete();
 
-        return redirect('/{{$crud->url}}');
+        return redirect()->back()->with('message','Success Deleted !');
+        //return redirect('/{{$crud->url}}');
     }
 
     /**

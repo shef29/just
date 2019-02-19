@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="card-header card-header-success"><?= $crud->titleSingular() ?> : {{$model-><?= array_values($fields)[1]->name ?>}}</div>
+<div class="card-header card-header-success"><?= $crud->titleSingular() ?> : {{$model-><?= array_values($fields)[1]->title ?>}}</div>
 <div class="card-body">
     <!--actions-->
     <p>
@@ -23,7 +23,6 @@
     'onclick'=>'return confirm("Confirm Delete?")'])
     !!}
     {!! Form::close() !!}
-
 
     <div class="card">
         <div class="card-block">
