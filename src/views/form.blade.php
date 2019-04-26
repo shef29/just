@@ -38,11 +38,13 @@
                             {!! Form::label('controller', 'controller Class: ', ['class' => 'control-label']) !!}
                             {!! Form::text('controller', null, ['class' => 'form-control']) !!}
                             {!! $errors->first('controller', '<p class="help-block">:message</p>') !!}
+                            <div class="hint-block">example : <code>admin\Post[Controller]</code>.</div>
                         </div>
                         <div class="form-group{{ $errors->has('viewPath') ? ' has-error' : ''}}">
                             {!! Form::label('viewPath', 'viewPath: ', ['class' => 'control-label']) !!}
                             {!! Form::text('viewPath', null, ['class' => 'form-control']) !!}
                             {!! $errors->first('viewPath', '<p class="help-block">:message</p>') !!}
+                            <div class="hint-block">example : <code>admin\post</code>.</div>
                         </div>
 
                         <div class="form-group">

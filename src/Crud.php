@@ -12,20 +12,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Crud extends Model
 {
-    public
-        $table,
-        $model,
-        $controller,
-        $viewPath,
-        $route,
-        $as = '',
-        $namespace = '',
-        $url = '';
+    public $table;
+    public $model;
+    public $controller;
+    public $viewPath;
+    public $route;
+    public $as = '';
+    public $namespace = '';
+    public $url = '';
 
     protected $fillable = ['*'];
 
     public function generateAll()
     {
+        $this->setViewPath();
         $this->setNameSpace();
         $this->setRoute();
         $this->setUrl();
@@ -42,6 +42,11 @@ class Crud extends Model
 
         $this->generateWebRoute();
         $this->generateMenuItem();
+    }
+
+    public function setViewPath()
+    {
+        $this->viewPath = strtolower(preg_replace("/(?!^)([A-Z])/", '-$1', $this->viewPath));
     }
 
     public function getNameSpace($tr = '\\')
@@ -166,7 +171,6 @@ EOD;
 
     private function templatesDir($view)
     {
-//        return config('admin.crud.templates');
         return 'admin.crud.templates.' . $view;
     }
 
