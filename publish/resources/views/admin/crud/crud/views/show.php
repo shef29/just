@@ -2,27 +2,25 @@
 
 @section('content')
 
-<div class="card-header card-header-success"><?= $crud->titleSingular() ?> : {{$model-><?= array_values($fields)[1]->title ?>}}</div>
+<h3 class="card-title"><?= $crud->titleSingular() ?> : {{$model-><?= array_values($fields)[1]->title ?>}}</h3>
 <div class="card-body">
-    <!--actions-->
     <p>
         <a href="{{url('<?= $crud->url ?>')}}" title="Back">
             <button class="btn btn-warning btn-sm">
                 <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
             </button>
         </a>
+        <a href="{{url('<?= $crud->url ?>/'.$model->id.'/edit')}}" class="btn btn-success btn-sm">Edit</a>
+        {!! Form::open(['method' => 'DELETE', 'url' => ['<?= $crud->url ?>', $model->id], 'style' => 'display:inline']) !!}
+
+        {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Delete',[
+        'type' => 'submit',
+        'class' => 'btn btn-danger btn-sm',
+        'title' => 'Delete User',
+        'onclick'=>'return confirm("Confirm Delete?")'])
+        !!}
+        {!! Form::close() !!}
     </p>
-
-    <a href="{{url('<?= $crud->url ?>/'.$model->id.'/edit')}}" class="btn btn-success btn-sm">Edit</a>
-    {!! Form::open(['method' => 'DELETE', 'url' => ['<?= $crud->url ?>', $model->id], 'style' => 'display:inline']) !!}
-
-    {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Delete',[
-    'type' => 'submit',
-    'class' => 'btn btn-danger btn-sm',
-    'title' => 'Delete User',
-    'onclick'=>'return confirm("Confirm Delete?")'])
-    !!}
-    {!! Form::close() !!}
 
     <div class="card">
         <div class="card-block">

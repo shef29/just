@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="card-header card-header-success"><?= $crud->titlePlural() ?></div>
+<h3 class="card-title"><?= $crud->titlePlural() ?></h3>
 <div class="card-body">
     <p>
         <a href="{{url('<?= $crud->url ?>/create')}}" class="btn btn-success btn-sm">
@@ -12,7 +12,7 @@
     </p>
 
     <div class="main-table">
-        <table class="table-bordered">
+        <table class="table table-bordered">
             <thead>
                 <tr>
     <?php foreach ($fields as $field) : ?>
@@ -51,7 +51,7 @@
                 </td>
             </tr>
             @empty
-            empty
+            <h4>empty</h4>
             @endforelse
             </tbody>
         </table>

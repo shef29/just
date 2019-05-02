@@ -1,9 +1,8 @@
 @extends('admin.backend')
 
 @section('content')
-<div class="card-header card-header-success">
-    <h4 class="card-title"> Create : <?= $crud->titlePlural() ?></h4>
-</div>
+
+<h4 class="card-title"> Create : <?= $crud->titlePlural() ?></h4>
 <div class="card-body">
     @if ($errors->any())
     <ul class="alert alert-danger">

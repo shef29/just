@@ -2,9 +2,7 @@
 
 @section('content')
 
-<div class="card-header card-header-success">
-    <h4 class="card-title"> Update : <?= $crud->titlePlural() ?></h4>
-</div>
+<h4 class="card-title"> Update : <?= $crud->titlePlural() ?></h4>
 <div class="card-body">
     @if ($errors->any())
     <ul class="alert alert-danger">
@@ -14,8 +12,8 @@
     </ul>
     @endif
     {!! Form::model($model, [
-        'method' => 'PATCH',  'class' => 'form-horizontal',
-        'route' => ['<?= $crud->route ?>.update', $model->id],
+    'method' => 'PATCH', 'class' => 'form-horizontal',
+    'route' => ['<?= $crud->route ?>.update', $model->id],
     ]) !!}
     <?php foreach ($fields as $field) : ?>
         <?= \Shef29\JustAdmin\GenerateField::getHtmlField($field); ?>
